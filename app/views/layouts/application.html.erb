@@ -6,6 +6,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -21,6 +24,10 @@
       <p class="alert"><%= alert %></p>
     </div>
   <% end %>
+
+  <%= link_to root_path, class:"navbar-item" do %>
+  <h2 class="title is-4">Bookers</h2>
+  <% end %>
   
     <% if user_signed_in? %>
       <li>
@@ -28,10 +35,10 @@
       </li>
     <% else %>
       <li>
-        <%= link_to "新規登録", new_user_registration_path %>
+        <%= link_to "Sign up", new_user_registration_path %>
       </li>
       <li>
-        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "login", new_user_session_path %>
       </li>
     <% end %>
     <%= yield %>
