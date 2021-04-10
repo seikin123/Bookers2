@@ -11,9 +11,20 @@
   </head>
 
   <body>
+  <% if flash[:notice] %>
+    <div class="notification is-info">
+      <p class="notice"><%= notice %></p>
+    </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="notification is-denger">
+      <p class="alert"><%= alert %></p>
+    </div>
+  <% end %>
+  
     <% if user_signed_in? %>
       <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "logout", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
       <li>
