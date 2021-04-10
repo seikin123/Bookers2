@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: "homes#index"
 
   resources :books, only: [:new, :create, :index, :show, :destroy]
+  resources :users
 end
