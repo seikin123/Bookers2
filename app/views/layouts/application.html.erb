@@ -38,7 +38,7 @@
       <%= link_to "Users", users_path %>
       </li>
       <li>
-      <%= link_to "Book", books_path %>
+      <%= link_to "Books", books_path %>
       </li>
       <li>
         <%= link_to "logout", destroy_user_session_path, method: :delete %>
@@ -50,8 +50,9 @@
     <li>
       <%= link_to "about",home_about_path %>
     </li>
+    
       <li>
-      <%= link_to "Sign up", new_user_registration_path %>
+      <%= link_to "sign up", new_user_registration_path %>
       </li>
       <li>
         <%= link_to "login", new_user_session_path %>

@@ -1,18 +1,7 @@
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
+<td><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg" %></td>
 
-  <tbody>
-    <% @book.each do |book| %>
-      
-        <%= render 'books/item', book: book %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<td><%= link_to book.user.name, user_path(book.user_id) %></td>
+
+<td><%= link_to book.title %></td>
+
+<td><%= @book.body %></td>
