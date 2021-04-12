@@ -1,16 +1,14 @@
 <h2>User info#show</h2>
+<%= render 'users/profile' %>
 
-<%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg" %>
+<%= render 'books/form' %>
+
+<h2>Books</h2>
+<td>title</td>
+<td>Opinion</td>
 
 
-<td><%= @user.name%></td>
-<% if @user.id == current_user.id %>
-<td>
-<%= link_to "編集", edit_user_path(@user) %>
-</td>
-<% end %>
-<td>
-<%= @user.profile %>
-</td>
 
-  
+
+
+

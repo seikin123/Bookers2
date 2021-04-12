@@ -1,0 +1,9 @@
+<h1>Editng Book</h1>
+<table>
+  <%= render "books/form", book: @book %>
+
+  <td class="show"><%= link_to "show", books_path %></td>
+  <td class="back"><%= link_to "back", books_path %></td>
+</table>
+
+

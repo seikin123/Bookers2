@@ -1,9 +1,17 @@
 <h1>User info#index</h1>
+<%= render 'users/profile' %>
 
+<%= render 'books/form' %>
+
+</thead>
+<h2>Users</h2>
+<td>image</td>
+<td>name</td>
+<table>
 <% @users.each do |user| %>
-<%= link_to user_path(user) do %>
-<%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg" %>
+<td><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg" %></td>
+<td><%= user.name %></td>
+<td><%= link_to "show", user_path(user.id) %></td>
 <% end %>
-<%= link_to user.name, user_path(user) %>
+</table>
 
-<% end %>

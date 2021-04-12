@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @book.each do |book| %>
+      
+        <%= render 'books/item', book: book %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
