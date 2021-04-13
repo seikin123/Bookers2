@@ -18,6 +18,7 @@ end
     @books = Book.all
     @book = Book.new
     
+    
   end
 
   def show
