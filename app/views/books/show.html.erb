@@ -3,12 +3,12 @@
 
 <%= render 'books/form' %>
 
-<h1>Books detail</h1>
+<h1>Book detail</h1>
 <table>
 
 <td><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg" %></td>
 <td><%= link_to user_path(@book.user_id) do %></td>
-<td><%= link_to @book.user.name, user_path(@book.user_id) %></td>
+<td><%=link_to @book.user.name, user_path(@book.user_id) %></td>
 <% end %>
 <td><%= link_to @book.title %></td>
 
