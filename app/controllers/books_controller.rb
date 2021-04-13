@@ -18,11 +18,10 @@ end
     @books = Book.all
     @book = Book.new
     @user = current_user
-    
   end
 
   def show
-    @book = Book.new
+    @booknew = Book.new
     @book = Book.find(params[:id])
     @user = @book.user
     @user = User.find(@book.user_id)
@@ -49,7 +48,7 @@ end
 
   private
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.permit(:title, :body)
   end
 
 end
