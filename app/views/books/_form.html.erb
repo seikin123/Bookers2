@@ -1,17 +1,10 @@
-<% if @book.errors.any? %>
-<h4><%= pluralize(@book.errors.count,"error") %> prohibited this product from being saved:</h4>
-<% @book.errors.full_messages.each do |message| %>
-<p><%= message %></p>
-<% end %>
-<% end %>
 
-<% book = Book.new if book.nil?  %>
+
 <%= form_with model:book, local:true do |f| %>
-
-<h4>Title</h4>
+<%= f.label :title %>
 <%= f.text_field :title %>
 
-<h4>Body</h4>
+<%= f.label :opinion%>
 <%= f.text_area :body %>
 
 <br><%= f.submit 'Create Book' %></br>

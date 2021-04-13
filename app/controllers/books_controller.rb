@@ -17,12 +17,15 @@ end
   def index
     @books = Book.all
     @book = Book.new
-    
+    @user = current_user
     
   end
 
   def show
+    @book = Book.new
     @book = Book.find(params[:id])
+    @user = @book.user
+    @user = User.find(@book.user_id)
   end
 
   def edit

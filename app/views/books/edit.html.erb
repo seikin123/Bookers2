@@ -1,6 +1,7 @@
 <h1>Editing Book</h1>
 <table>
-  <%= render "books/form", book: @book %>
+  <%= render 'books/error', model: @book%>
+  <%= render 'books/form', book: @book %>
 
   <td class="show"><%= link_to "show", books_path %></td>
   <td class="back"><%= link_to "back", books_path %></td>

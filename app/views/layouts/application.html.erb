@@ -31,32 +31,16 @@
     
 
     <% if user_signed_in? %>
-      <li>
-      <%= link_to "home", user_path(current_user.id) %>
-      </li>
-      <li>
-      <%= link_to "Users", users_path %>
-      </li>
-      <li>
-      <%= link_to "Books", books_path %>
-      </li>
-      <li>
-        <%= link_to "logout", destroy_user_session_path, method: :delete %>
-      </li>
-    
+      <li><%= link_to href="home", user_path(current_user.id) %></li>
+      <li><a class="fas fa-users nav-link text-light" href="/users"> Users</a></li>
+      <li><a class="fas fa-book-open nav-link text-light" href="/books"> Books</a></li>
+      
+      <li><a class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out"> logout</a></li>
     <% else %>
-    <li>
-      <%= link_to "home", root_path %>
-    <li>
-      <%= link_to "about",home_about_path %>
-    </li>
-    
-      <li>
-      <%= link_to "sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "login", new_user_session_path %>
-      </li>
+      <li><a class="fas fa-home nav-link text-light" href="/"> Home</a></li>
+      <li><a class="fas fa-link nav-link text-light" href="/home/about"> About</a></li>
+      <li><a class="fas fa-user-plus nav-link text-light" href="/users/sign_up"> sign up</a></li>
+      <li><a class="fas fa-sign-in-alt nav-link text-light" href="/users/sign_in"> login</a></li>
 
 
     <% end %>
