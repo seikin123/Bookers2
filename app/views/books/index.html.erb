@@ -1,9 +1,17 @@
 
 <h2>User info</h2>
-<%= render 'users/profile', user:@user %>
-
+<%= render 'users/profile', user: @user %>
 
 <h4>New Book</h4>
 
-<%= render 'books/form' %>
+<%= render 'books/form', book: @book %>
 
+<% @books.each do |book| %>
+    <tr>
+        <td>
+        <%= attachment_image_tag book.user, :profile_image, :fill, 50, 50,fallback: "no_image.jpg"%>
+        </td>
+        <td><%= link_to book.title, book_path(book.id) %></td>
+        <td><%= book.body %></td>
+    </tr>
+<% end %>
