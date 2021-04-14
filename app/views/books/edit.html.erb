@@ -3,7 +3,7 @@
   <%= render 'books/error', model: @book%>
   <%= render 'books/form', book: @book %>
 
-  <td class="show"><%= link_to "show", books_path %></td>
+  <td class="show"><%= link_to "show", book_path(@book) %></td>
   <td class="back"><%= link_to "back", books_path %></td>
 </table>
 
