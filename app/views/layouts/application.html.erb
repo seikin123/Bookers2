@@ -31,7 +31,8 @@
     
 
     <% if user_signed_in? %>
-      <li><%= link_to href="home", user_path(current_user.id) %></li>
+      <%# <li><%= link_to "home", user_path(current_user.id), class:"fas fa-home nav-link text-light" %>
+      <li><a class="fas fa-home nav-link text-light" href="<%= user_path(current_user.id) %>"> home</a></li>
       <li><a class="fas fa-users nav-link text-light" href="/users"> Users</a></li>
       <li><a class="fas fa-book-open nav-link text-light" href="/books"> Books</a></li>
       
