@@ -24,14 +24,16 @@
       <p class="alert"><%= alert %></p>
     </div>
   <% end %>
-
-  <%= link_to root_path, class:"navbar-item" do %>
-  <h2 class="title is-4">Bookers</h2>
-  <% end %>
-    
-
-    <% if user_signed_in? %>
-      <%# <li><%= link_to "home", user_path(current_user.id), class:"fas fa-home nav-link text-light" %>
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/"><span>Bookers</span></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+<% if user_signed_in? %>
       <li><a class="fas fa-home nav-link text-light" href="<%= user_path(current_user.id) %>"> home</a></li>
       <li><a class="fas fa-users nav-link text-light" href="/users"> Users</a></li>
       <li><a class="fas fa-book-open nav-link text-light" href="/books"> Books</a></li>
@@ -42,9 +44,21 @@
       <li><a class="fas fa-link nav-link text-light" href="/home/about"> About</a></li>
       <li><a class="fas fa-user-plus nav-link text-light" href="/users/sign_up"> sign up</a></li>
       <li><a class="fas fa-sign-in-alt nav-link text-light" href="/users/sign_in"> login</a></li>
-
-
     <% end %>
+        </ul>
+      </div>
+    </div>
+    </nav>
+    </header>
     <%= yield %>
+        <footer class="footer">
+  <div class='container mt-5'>
+  <div class='row'>
+	<div class='mx-auto'>
+		<p>CopyRight Infratop.inc</p>
+	</div>
+    </div>
+  </div>
+</footer>
   </body>
 </html>
