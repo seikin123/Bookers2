@@ -1,10 +1,10 @@
 <h1>Editing Book</h1>
+<%= render 'books/error', model: @book %>
 <table>
   
-  
-  <%= render 'books/form', book:@book %>
+  <%= render 'books/form', {book:@book, btn: 'Update Book'} %>
 
-  <td class="show"><%= link_to "Show", book_path(@booknew) %></td>
+  <td class="show"><%= link_to "Show", book_path(@book.id) %></td>
   <td class="back"><%= link_to "Back", books_path %></td>
 </table>
 
