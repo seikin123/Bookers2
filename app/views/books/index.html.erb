@@ -3,9 +3,14 @@
 <%= render 'users/profile', user: @user %>
 
 <h4>New book</h4>
+<%= render 'books/error', model: @booknew %>
 
-<%= render 'books/form', book: @booknew %>
+<%= render 'books/form', {book: @booknew, btn: 'Create Book'} %>
 <table>
+<h2>Books</h2>
+<thead>
+    <th>title</th>
+    <th>opinion</th>
 <% @books.each do |book| %>
     <tr>
         <td>
