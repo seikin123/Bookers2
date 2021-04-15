@@ -1,7 +1,7 @@
 <h1>User info#index</h1>
 <%= render 'users/profile', user: @user %>
 <h3>New book</h3>
-<%= render 'books/form', book: @booknew %>
+<%= render 'books/form', {book: @booknew, btn: 'Create Book'} %>
 
 <table>
 	<h2>Users</h2>
