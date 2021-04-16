@@ -1,11 +1,19 @@
-<h2>User info</h2>
-<%= render 'users/profile', user: @user %>
-<h3>New book</h3>
-<%= render 'books/form', {book:@booknew, btn: 'Create Book'} %>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+        <h2>User info</h2>
+      <table class='table'>
+          <%= render 'users/profile', user: @user %>
+      </table>
+          <h2 class="mt-3">New book</h2>
+        <div class="form-group">
+          <tr><%= render 'books/form', {book:@booknew, btn: 'Create Book'} %></tr>
+        </div>
 
-<h1>Book detail</h1>
-  <table class="table table-user-show">
-    <tr>
+      <div class='col-md-8 offset-md-1'>
+          <h2>Book detail</h2>
+      <table class="table table-user-show">
+      <tr>
       <td><%= attachment_image_tag @user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg"%></td>
       <td><%= link_to @user.name, user_path(@user) %></td>
       <td><%= @book.title %></td>
@@ -14,5 +22,9 @@
       <td><%= link_to "Edit", edit_book_path(@book) %></td>
       <td><%= link_to "Destroy", book_path, method: :delete, "data-confirm"=> "Are you sure?" %></td>
           <% end %>
-        </tr>
+      </tr>
       </table>
+      </div>
+  </div>
+</div>
+</div>
