@@ -1,16 +1,17 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
-  
+  before_action :editing_user, only: [:edit]
+
   def new
     @book = Book.new
   end
 
   def create
-    @booknew = Book.new(book_params) #books_paramsかもです。ストロングパラメーターを確認してください。
-    @booknew.user_id =  current_user.id #@booknewには、↑のコードでtitleやdescriptionは入ったので、idをいれてあげます。book.user_idとかで、入れるべき場所を参照できます。
+    @booknew = Book.new(book_params) 
+    @booknew.user_id =  current_user.id 
     @user = current_user
-  if @booknew.save #ちゃんと中身を入れて保存する
-    redirect_to book_path(@booknew.id), notice: 'Book was successfully created'  #pathがおかしいですよね。@bookなんてものはここまでで定義されていません。@booknewです。
+  if @booknew.save 
+    redirect_to book_path(@booknew.id), notice: 'Book was successfully created'  
   else
     @books = Book.all
     render :index
@@ -32,11 +33,6 @@ end
 
   def edit
     @book = Book.find(params[:id])
-    if @book.user == current_user #view画面ではテストが通らなかったため、
-      render "edit"
-  else
-    redirect_to books_path
-  end
   end
 
   def update
@@ -44,6 +40,7 @@ end
     if @book.update(book_params)
       redirect_to book_path(@book), notice: 'Book was successfully updated!'
     else
+      
       render :edit
     end
   end
@@ -59,4 +56,10 @@ end
     params.require(:book).permit(:title, :body)
   end
 
+  def editing_user
+    book = Book.find(params[:id])
+    if book.user != current_user 
+      redirect_to books_path
+    end
+  end
 end

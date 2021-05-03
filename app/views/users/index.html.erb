@@ -1,37 +1,41 @@
+<main>
 <div class="container px-5 px-sm-0">
-<div class="row">
-<div class="col-md-3">
-  <h2>User info#index</h2>
-  <table class="table">
-  <tr><%= render 'users/profile', user: @user %></tr>
-  </table>
-  <h2 class="mt-3">New book</h2>
-  <div class="form-group">
-  <tr><%= render 'books/form', {book: @booknew, btn: 'Create Book'} %></tr>
-</div>
+  <div class="row">
+    <div class="col-md-3">
+      
+      
+      <table class="table">
+      <tr><%= render 'users/profile', user: @user %></tr>
+      </table>
+      
+      <div>
+        <%= render 'books/form', {book: @booknew, btn: 'Create Book'} %>
+      </div>
+    </div>
 
-<div class='col-md-8 offset-md-1'>
-	<h2>Users</h2>
-  <table class="table table-hover table-inverse">
-    <thead>
-      <th>image</th>
-      <th>name</th>
-      <th clspan="3"></th>
-  <% @users.each do |user| %>
-  <tr><td><%= attachment_image_tag user, :profile_image, :fill, 50, 50,fallback: "no_image.jpg" %></td>
-  <td><%= user.name %></td>
-  <td><%= link_to "Show", "/users/#{user.id}" %></td>
-  </tr>
-  <% end %>
-  </table>
-  </tr>
-  </thead>
-  </tbody>
-  </table>
+    <div class="col-md-8 offset-md-1">
+	    <h2>Users</h2>
+    <table class="table table-hover table-inverse">
+      <thead>
+      <tr>
+        <th>image</th>
+        <th>name</th>
+        <th clspan="3"></th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+      <tr>
+        <td><%= attachment_image_tag user, :profile_image, size: "40x40",fallback: "no_image.jpg" %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to "Show", "/users/#{user.id}" %></td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
-</div>
-</div>
-</div>
+</main>
 
 
 

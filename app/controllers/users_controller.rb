@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @booknew = Book.new
+  
   end
 
   def edit
@@ -33,7 +34,6 @@ end
 end
 
 private
-
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
